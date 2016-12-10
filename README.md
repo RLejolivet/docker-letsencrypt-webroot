@@ -35,8 +35,12 @@ to test the server configuration
 
 #### Standard run, host web server has a /data/webroot webroot:
 
-    docker run --rm -v /data/webroot:/var/www -v /etc/letsencrypt:/etc/letsencrypt -e DOMAINS="example.com www.example.com" -e EMAIL=sysadmins@example.com -e KEY_SIZE=4096 letsencrypt-webroot
+    docker run --rm -v /data/webroot:/var/www -v /etc/letsencrypt:/etc/letsencrypt -e DOMAINS="example.com www.example.com" -e EMAIL=sysadmins@example.com -e KEY_SIZE=4096 rlejolivet/letsencrypt-webroot
 
 The generated certificates will be in /etc/letsencrypt/archive/example.com.
 A symlink to the latest certificate will be in /etc/letsencrypt/live/example.com.
 Running the same command again will renew the certificate if it has less than 30 days remaining (Let's Encrypt default).
+
+#### Quick staged run:
+
+      docker run --rm -ti -e NO_UPDATE=y -e STAGING=y -e DOMAINS="example.com www.example.com" letsencrypt-webroot
