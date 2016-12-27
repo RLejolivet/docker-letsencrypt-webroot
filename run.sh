@@ -34,8 +34,8 @@ fi
 
 if [ -z "$DEBUG" ]
 then
-	letsencrypt certonly $STAGING_OPT --non-interactive --text -v $EMAIL_OPT --agree-tos --rsa-key-size $KEY_SIZE certonly --webroot -w $WEB_ROOT $DOMAIN_STRING
+	letsencrypt $STAGING_OPT --non-interactive --text -v $EMAIL_OPT --agree-tos --rsa-key-size $KEY_SIZE certonly --webroot -w $WEB_ROOT $DOMAIN_STRING
 else
-	echo "letsencrypt certonly $STAGING_OPT --non-interactive --text -v $EMAIL_OPT --agree-tos --rsa-key-size $KEY_SIZE certonly --webroot -w $WEB_ROOT $DOMAIN_STRING"
+	echo "letsencrypt $STAGING_OPT --non-interactive --text -v $EMAIL_OPT --agree-tos --rsa-key-size $KEY_SIZE certonly --webroot -w $WEB_ROOT $DOMAIN_STRING"
 fi
 
