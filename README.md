@@ -43,4 +43,4 @@ Running the same command again will renew the certificate if it has less than 30
 
 #### Quick staged run:
 
-      docker run --rm -ti -e NO_UPDATE=y -e STAGING=y -e DOMAINS="example.com www.example.com" letsencrypt-webroot
+      docker run --rm -e NO_UPDATE=y -e STAGING=y -e DOMAINS="example.com www.example.com" letsencrypt-webroot
