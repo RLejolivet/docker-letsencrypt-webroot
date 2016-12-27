@@ -9,6 +9,12 @@ then
 	exit 1
 fi
 
+DOMAIN_STRING=""
+for i in $DOMAINS;
+do
+	DOMAIN_STRING="$DOMAIN_STRING -d $i"
+done
+
 if [ -z "$NO_UPDATE" ]
 then
 	apt-get update
@@ -28,8 +34,8 @@ fi
 
 if [ -z "$DEBUG" ]
 then
-	letsencrypt certonly $STAGING_OPT --non-interactive --text -v $EMAIL_OPT --agree-tos --rsa-key-size $KEY_SIZE certonly --webroot -w $WEB_ROOT $DOMAINS
+	letsencrypt certonly $STAGING_OPT --non-interactive --text -v $EMAIL_OPT --agree-tos --rsa-key-size $KEY_SIZE certonly --webroot -w $WEB_ROOT $DOMAIN_STRING
 else
-	echo "letsencrypt certonly $STAGING_OPT --non-interactive --text -v $EMAIL_OPT --agree-tos --rsa-key-size $KEY_SIZE certonly --webroot -w $WEB_ROOT $DOMAINS"
+	echo "letsencrypt certonly $STAGING_OPT --non-interactive --text -v $EMAIL_OPT --agree-tos --rsa-key-size $KEY_SIZE certonly --webroot -w $WEB_ROOT $DOMAIN_STRING"
 fi
 
