@@ -7,7 +7,7 @@ using the environment variables as parameters.
 Two volumes should be mounted :
 - /var/www (or other www-root specified by env, see below) should be served
   by the server for /.well-known/acme-challenge location
-- /etc/letsnecrypt contains the generated certificates
+- /etc/letsencrypt contains the generated certificates
 
 Docker image run and restarting the services using the certificates is left
 is left to the user : no need to provide root access to the host machine
